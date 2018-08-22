@@ -2,11 +2,11 @@
 #include <linux/input.h>
 #include <linux/uinput.h>
 
-class PollrateVerifier
+class InputSpammer
 {
   public:
-    PollrateVerifier();
-    ~PollrateVerifier();
+    InputSpammer();
+    ~InputSpammer();
     void run();
   private:
     void quit( const char* msg );

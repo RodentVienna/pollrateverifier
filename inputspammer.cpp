@@ -11,9 +11,9 @@
 
 #include <iostream>
 
-#include "pollrateverifier.h"
+#include "inputspammer.h"
 
-PollrateVerifier::PollrateVerifier()
+InputSpammer::InputSpammer()
 {
   // Open the uinput driver
   m_fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
@@ -54,7 +54,7 @@ PollrateVerifier::PollrateVerifier()
 
 }
 
-PollrateVerifier::~PollrateVerifier()
+InputSpammer::~InputSpammer()
 {
   // Cleanup and exit
   if( ioctl(m_fd, UI_DEV_DESTROY) < 0 )
@@ -65,13 +65,13 @@ PollrateVerifier::~PollrateVerifier()
   close(m_fd);
 }
 
-void PollrateVerifier::quit( const char* msg)
+void InputSpammer::quit( const char* msg)
 {
   perror(msg);
   exit(1);
 }
 
-void PollrateVerifier::keyPress( int key, bool pressed )
+void InputSpammer::keyPress( int key, bool pressed )
 {
   // Register the key press m_event
   memset(&m_ev, 0, sizeof(input_event));
@@ -94,7 +94,7 @@ void PollrateVerifier::keyPress( int key, bool pressed )
   }
 }
 
-void PollrateVerifier::run()
+void InputSpammer::run()
 {
 
   // TODO: Right now let's have a short delay and let the user start m_evhz in another terminal. Really we want a background thread started to trigger input and a foreground thread to report on the results

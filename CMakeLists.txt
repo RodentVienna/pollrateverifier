@@ -5,7 +5,7 @@ find_package( X11 REQUIRED )
 
 add_executable( 
   pollrateverifier
-  pollrateverifier.cpp
+  inputspammer.cpp
   main.cpp )
 
 install( TARGETS pollrateverifier

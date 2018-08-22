@@ -1,8 +1,8 @@
 
-#include "pollrateverifier.h"
+#include "inputspammer.h"
 
 int main(void)
 {
-  PollrateVerifier v;
+  InputSpammer v;
   v.run();
 }
